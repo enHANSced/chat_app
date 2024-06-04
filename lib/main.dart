@@ -31,3 +31,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Personas que trabajaron: 
+//  1. Kenner Barahona
+//  2. Diego Andrade
+//  3. Tatiana Guerrino
+//  4. Dereck Perez
+//  5. Christopher Rivera*/
