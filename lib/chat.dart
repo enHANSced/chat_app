@@ -35,8 +35,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
     socket.on('receive_message', (message) {
       setState(() {
-        messages.add(Message(
-            text: message, isSentByMe: false, timestamp: DateTime.now()));
+        messages.add(
+            Message(text: message, isSentByMe: false, time: DateTime.now()));
         _streamController.add(messages);
       });
       _scrollToBottom();
@@ -52,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
         messages.add(Message(
             text: _textController.text,
             isSentByMe: true,
-            timestamp: DateTime.now()));
+            time: DateTime.now()));
         _streamController.add(messages);
         _textController.clear();
       });
@@ -61,14 +61,12 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   void _scrollToBottom() {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      if (_scrollController.hasClients) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        );
-      }
+    Future.delayed(const Duration(milliseconds: 200), () {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
     });
   }
 
@@ -84,7 +82,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('Local Host'),
+        title: const Text('Mark Zuckerberg'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {},
@@ -139,14 +137,6 @@ class _ChatScreenState extends State<ChatScreen> {
                               ? Colors.blueAccent
                               : Colors.white,
                           borderRadius: BorderRadius.circular(12.0),
-                          /*boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 5,
-                              offset: const Offset(0, 3),
-                            ),
-                          ],*/
                         ),
                         child: Column(
                           crossAxisAlignment: message.isSentByMe
@@ -164,7 +154,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              message.timestampFormatted(),
+                              message.timeFormatted(),
                               style: TextStyle(
                                 color: message.isSentByMe
                                     ? Colors.white60

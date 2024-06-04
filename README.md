@@ -22,3 +22,11 @@ Define la interfaz de usuario para la pantalla de chat. Utiliza un `StreamContro
 
 Contiene el modelo de datos utilizados en la aplicación `Message` mencionado en `chat.dart`, toma datos como la hora y si el mensaje es enviado por el mismo usuario; esto garantiza una mejor experiencia de usuario.
 
+#### Personas que trabajaron en el proyecto
+
+1. Kenner Barahona
+2. Diego Andrade
+3. Tatiana Guerrino
+4. Dereck Perez
+5. Christopher Rivera
+

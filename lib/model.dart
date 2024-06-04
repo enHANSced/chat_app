@@ -1,14 +1,14 @@
 class Message {
   final String text;
   final bool isSentByMe;
-  final DateTime timestamp;
+  final DateTime time;
 
   Message(
-      {required this.text, required this.isSentByMe, required this.timestamp});
+      {required this.text, required this.isSentByMe, required this.time});
 
-  String timestampFormatted() {
-    final hours = timestamp.hour.toString().padLeft(2, '0');
-    final minutes = timestamp.minute.toString().padLeft(2, '0');
+  String timeFormatted() {
+    final hours = time.hour.toString().padLeft(2, '0');
+    final minutes = time.minute.toString().padLeft(2, '0');
     return '$hours:$minutes';
   }
 }
